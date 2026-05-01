@@ -21,5 +21,7 @@ public class _9_DuplicateParentheses {
     public static void main(String[] args) {
         // System.out.println(isDuplicateParentheses("(((a+(b)))+(c+d))"));
         System.out.println(isDuplicateParentheses("((a+b)+b+c+d)(a-b+((c+d)))"));
+        System.out.println(isDuplicateParentheses("((c+d))"));
+
     }
 }

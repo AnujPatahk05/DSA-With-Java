@@ -1,4 +1,4 @@
-
+import Revesion.Node;
 
 class LinkedListIndexOutOfBoundException extends Exception{
     @Override

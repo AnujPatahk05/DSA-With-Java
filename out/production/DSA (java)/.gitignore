@@ -1,7 +1,0 @@
-*.class
-
-*.log
-*.tmp
-
-.vscode/
-.idea
