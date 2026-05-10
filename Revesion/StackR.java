@@ -1,6 +1,7 @@
 
 import java.util.Stack;
 
+
 public class StackR {
     public static void pushAtBottom(Stack<Integer> stack,int value){
         if(stack.isEmpty()){
@@ -178,11 +179,59 @@ public class StackR {
         top = tokens.length-1;
         return evalRPN_Helper(tokens);
     }
+
+    private static class Pair{
+        StringBuilder currentString;
+        int currentCount; 
+
+        public Pair(StringBuilder currentString, int currentCount) {
+            this.currentString = currentString;
+            this.currentCount = currentCount;
+        }
+    }
     
+    public static String decodeString(String s) {
+        StringBuilder currentString = new StringBuilder();
+        int currentCount = 0;
+
+        Stack<Pair> stack = new Stack<>();
+
+        for(char c:s.toCharArray()){
+            if(Character.isDigit(c)){
+                currentCount = currentCount*10 + (c - '0');
+            }else if(c == '['){
+                // strStack.push(new StringBuilder(currentString));
+                // countStack.push(currentCount);
+                stack.push(new Pair(new StringBuilder(currentString),currentCount));
+
+                currentString = new StringBuilder();
+                currentCount = 0;
+            }else if(c == ']'){
+                // int repeat = countStack.pop();
+                Pair pair = stack.pop();
+                StringBuilder temp = new StringBuilder();
+
+                for(int i = 0; i < pair.currentCount; i++){
+                    temp.append(currentString);
+                }
+
+                currentString = new StringBuilder(pair.currentString).append(temp);
+            }else{
+                currentString.append(c);
+            }
+        }
+
+        return currentString.toString();
+
+    }
+
+   
 
 
     public static void main(String[] args) {
-        String[] tokens = {"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
-        System.out.println(evalRPN(tokens));
+        // System.out.println(decodeString("3[a2[c]]"));//accaccacc
     }
 }
+
+
+
