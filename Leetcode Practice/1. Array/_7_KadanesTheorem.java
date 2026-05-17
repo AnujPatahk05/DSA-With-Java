@@ -1,6 +1,6 @@
 /*
     53. Maximum Subarray
-    (easy) --> https://dsa.apnacollege.in/
+    (Medium) --> https://dsa.apnacollege.in/
 
     Given an integer array nums, find the subarray with the largest sum, 
     and return its sum.
