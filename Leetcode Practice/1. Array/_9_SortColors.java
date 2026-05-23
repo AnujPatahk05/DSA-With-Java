@@ -1,6 +1,3 @@
-
-import java.util.Arrays;
-
 /*
     75. Sort Colors
     (medium)
@@ -17,8 +14,10 @@ import java.util.Arrays;
     Input: nums = [2,0,2,1,1,0]
     Output: [0,0,1,1,2,2]
 */
+import java.util.Arrays;
 
 public class _9_SortColors {
+    //Solution using counting sort
     public static void sortColors(int[] nums){
         int[] countArr = new int[3];
 
