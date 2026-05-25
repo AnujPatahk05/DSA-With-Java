@@ -1,19 +1,44 @@
 # DSA-With-Java
-This is my DSA journey repository. I learned a lot of DSA concepts and this is improved my problem solving skill.
 
-# DSA With Java
+This repository documents my journey of learning Data Structures and Algorithms using Java.  
+I use this repository to practice problem-solving, improve coding skills, and understand different DSA patterns and techniques deeply.
 
-This repository contains my Data Structures and Algorithms practice using Java.
-Each folder represents a chapter, and each file contains problem solutions
-with clear logic and implementation.
+I usually solve problems in VS Code, test them with different cases, and then submit them on LeetCode.  
+Each solution represents my own learning process and understanding of the problem.
 
-Topics covered:
+## Topics Covered
+
 - Arrays
 - Sorting Algorithms
 - Recursion
-- Linked List, Stack, Queue
-- Trees (BST, AVL, Red-Black)
-- Heaps & Hashing
-- Greedy Algorithms
 - Backtracking
+- Linked List
+- Stack
+- Queue
+- Trees (BST, AVL, Red-Black Tree)
+- Heaps
+- Hashing
+- Greedy Algorithms
+- Sliding Window
+- Two Pointers
+- Monotonic Stack & Deque
+
+## Goals
+
+- Strengthen problem-solving skills
+- Build consistency in DSA practice
+- Learn optimal approaches and patterns
+- Prepare for coding interviews and placements
+
+## Language Used
+
+- Java
+
+## Platforms
+
+- LeetCode
+- VS Code
+- GitHub
+
+This repository will continue to grow as I learn new concepts and solve more problems.
  
