@@ -51,14 +51,35 @@ public class _2_ValidAnagram {
     }
 
     
+    public static boolean isAnagram2(String s,String t){
+        if (s.length() != t.length()) return false;
+
+        int[] freq = new int[26];
+
+        for(int i = 0;i < s.length();i++){
+            freq[s.charAt(i)-'a']++;
+        }
+
+        for(int i = 0;i < t.length();i++){
+            char ch = t.charAt(i);
+            if(freq[ch-'a'] == 0){
+                return false;
+            }else{
+                freq[ch-'a']--;
+            }
+        }
+
+        return true;
+    }
+    
 
     public static void main(String[] args) {
         String s = "anagram";
         String t = "nagaram";
-        System.out.println(isAnagram(s, t));
+        System.out.println(isAnagram2(s, t));
 
         String p = "rat"; // r:1 , a:1 , t:1
         String q = "car";
-        System.out.println(isAnagram(p,q));
+        System.out.println(isAnagram2(p,q));
     }
 }
