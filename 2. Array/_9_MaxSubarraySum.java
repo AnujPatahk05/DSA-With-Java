@@ -48,17 +48,6 @@ public class _9_MaxSubarraySum {
         return maxSum;
     }
 
-    public int maxSubArraySum3_Kadans_BEST(int[] nums) {
-        int currSum = nums[0];
-        int maxSum = nums[0];
-
-        for(int i = 1; i < nums.length; i++) {
-            currSum = Math.max(nums[i], currSum + nums[i]);
-            maxSum = Math.max(maxSum, currSum);
-        }
-
-        return maxSum;
-    }
 
     public static void main(String[] args) {
         int Array[] = {1,2,-2,7,-9,10};
