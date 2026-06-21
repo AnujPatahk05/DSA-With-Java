@@ -10,7 +10,7 @@ public class _3_SearchInSortedRotatedArray {
         }
 
         //L1
-        if(si <= mid){
+        if(arr[si] <= arr[mid]){
             if(target >= arr[si] && target < arr[mid]){
                 return Search(arr, target, si, mid-1);
             }else{
@@ -29,7 +29,7 @@ public class _3_SearchInSortedRotatedArray {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,3,2,4,5,7,6,8,9,0,16,11,12};
+        int arr[] = {6,7,8,9,1,2,3,4,5};
         System.out.println(Search(arr, 11, 0, arr.length-1));//11
         System.out.println(Search(arr, 4, 0, arr.length-1));//3
         System.out.println(Search(arr, 0, 0, arr.length-1));//9
