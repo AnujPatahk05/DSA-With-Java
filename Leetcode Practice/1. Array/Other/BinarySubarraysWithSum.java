@@ -162,6 +162,5 @@ public class BinarySubarraysWithSum {
         System.out.println("Ans: "+numSubarraysWithSum4(new int[]{1,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0},2));//24
         System.out.println("Ans: "+numSubarraysWithSum4(new int[]{0,0,0,0,0,0,1,0,0,0}, 0));//27
         System.out.println("Ans: "+numSubarraysWithSum4(new int[]{0,0}, 0));//3
-
     }
 }
