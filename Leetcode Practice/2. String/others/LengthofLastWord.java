@@ -16,7 +16,7 @@
     Explanation: The last word is "World" with length 5.
 */
 
-public class _LengthofLastWord {
+public class LengthofLastWord {
     // TC: O(n)
     // SC: O(n) due to s.trim() because it creates a new String
     public static int lengthOfLastWord(String s) {
