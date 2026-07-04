@@ -25,7 +25,7 @@
     After modifying the input array in-place, the first 6 characters of chars should be ["a","2","b","2","c","3"].
 */
 
-public class StringCompression {
+public class _6_StringCompression {
 
     // Using StringBuilder
     // TC: O(n)
