@@ -1,17 +1,17 @@
 public class ListNode {
-    int value;
+    int val;
     ListNode next;
 
     public ListNode() {
     }
 
     public ListNode(int value) {
-        this.value = value;
+        this.val = value;
         this.next = null;
     }
 
     public ListNode(int value, ListNode next) {
-        this.value = value;
+        this.val = value;
         this.next = next;
     }
 
@@ -20,7 +20,7 @@ public class ListNode {
         ListNode node = this;
         StringBuilder sb = new StringBuilder();
         while(node != null) {
-            sb.append(node.value);
+            sb.append(node.val);
             sb.append(" -> ");
             node = node.next;
         }
