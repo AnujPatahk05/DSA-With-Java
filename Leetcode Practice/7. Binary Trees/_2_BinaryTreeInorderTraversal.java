@@ -1,8 +1,8 @@
 /*
-    144. Binary Tree Preorder Traversal
+    94. Binary Tree Inorder Traversal
     (easy)
 
-    Given the root of a binary tree, return the preorder traversal of its nodes' values.
+    Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
     Example:
                           1
@@ -14,28 +14,28 @@
                        6   7 9
 
         
-        Preorder : 1,2,4,5,6,7,3,8,9
+        Inorder : 4 2 6 5 7 1 3 9 8
 */
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class _1_BinaryTreePreorderTraversal {
-    // Sol using recursion
+public class _2_BinaryTreeInorderTraversal {
+    // Recursion approach:
     // TC: O(n)
     // SC: O(h)
-    private static void preorderTraversal(TreeNode root,List<Integer> result) {
+    private static void inorderTraversal(TreeNode root,List<Integer> result) {
         if (root == null) return;
 
+        inorderTraversal(root.left, result);
         result.add(root.val);
-        preorderTraversal(root.left,result);
-        preorderTraversal(root.right,result);
+        inorderTraversal(root.right,result);
     }
 
-    public static List<Integer> preorderTraversal(TreeNode root) {
+    public static List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        preorderTraversal(root,result);
+        inorderTraversal(root, result);
         return result;
     }
 
@@ -45,33 +45,31 @@ public class _1_BinaryTreePreorderTraversal {
     //      here h is height of the tree
     //      if tree is skewed then n = h, SC: O(n)
     //      if tree is balanced then n = log n, SC: O(log n)
-    public static List<Integer> preorderTraversal2(TreeNode root) {
+    public static List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         
-        if(root == null) return result;
+        if (root == null) return result;
 
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
+        TreeNode curr = root;
 
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-
-            result.add(node.val);
-
-            if(node.right != null) {
-                stack.push(node.right);
+        while (curr != null ||!stack.isEmpty()) {
+            while(curr != null) {
+                stack.push(curr);
+                curr = curr.left;
             }
 
-            if(node.left != null) {
-                stack.push(node.left);
-            }
+            curr = stack.pop();
+            result.add(curr.val);
+
+            curr = curr.right;
         }
 
         return result;
     }
 
     public static void main(String[] args) {
-
+        
 /*
                           1
                         /   \
@@ -93,11 +91,8 @@ public class _1_BinaryTreePreorderTraversal {
         root.right.right = new TreeNode(8);
         root.right.right.left = new TreeNode(9);
 
-
-        System.out.println(preorderTraversal(root));
-        System.out.println(preorderTraversal2(root));
-
-
+        System.out.println(inorderTraversal(root));
+        System.out.println(inorderTraversal2(root));
 
     }
 }
