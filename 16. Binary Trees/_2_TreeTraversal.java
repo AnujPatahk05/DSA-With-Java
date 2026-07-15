@@ -91,7 +91,7 @@ class binaryTree{
             return;
         }
 
-        Queue<Node> queue = new java.util.ArrayDeque<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         queue.add(null);
 
