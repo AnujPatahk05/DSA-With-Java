@@ -20,6 +20,14 @@ public class TreeNode {
         this.right = right;
     }
 
+    public static void printInorder(TreeNode root) {
+        if (root == null) return;
+
+        printInorder(root.left);
+        System.out.print(root.val + " ");
+        printInorder(root.right);
+    }
+
     public static void printBFS(TreeNode root) {
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
