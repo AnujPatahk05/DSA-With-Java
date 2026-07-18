@@ -76,5 +76,6 @@ public class _24_TrappingRainWater {
         int[] height1 = {4,2,0,6,3,2,5};
         System.out.println(trap(height1));
         System.out.println(trap2(height1));
+        System.out.println(2%10);
     }
 }

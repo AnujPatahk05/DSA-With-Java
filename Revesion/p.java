@@ -99,7 +99,143 @@ public class p {
         return water;
     }
 
-    public static void main(String[] args) {
+    public static int maxProfit(int[] prices) {
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+
+        for (int price:prices) {
+            maxProfit = Math.max(maxProfit,price - minPrice);
+            minPrice = Math.min(minPrice,price);
+        }
+       
+        return maxProfit;
     }
+
+    // TC: O(n^2)
+    // SC: O(1)
+    public static void bubbleSort(int[] arr) {
+        for (int i = 0;i < arr.length;i++) {
+            for (int j = 0;j < arr.length - i - 1;j++) {
+                if(arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp; 
+                }
+            }
+        }
+    }
+
+    public static void selectionSort(int[] arr) {
+        for(int i = 0;i < arr.length - 1;i++) {
+            int minIndex = i;
+            
+            for (int j = i+1;j < arr.length;j++) {
+                if(arr[j] < arr[minIndex]) minIndex = j;
+            }
+
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+
+    public static void insertionSort(int[] arr) {
+        for (int i = 1;i < arr.length;i++) {
+            int curr = arr[i];
+            int prevIdx = i - 1;
+            while(prevIdx >= 0 && curr < arr[prevIdx]) {
+                arr[prevIdx + 1] = arr[prevIdx];
+                prevIdx--;
+            }
+            arr[prevIdx + 1] = curr;
+        }
+    }
+
+    public static void countSort(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        for(int i:arr) {
+            max = Math.max(max,i);
+        }
+
+        int[] countArr = new int[max+1];
+
+        for(int i:arr) {
+            countArr[i]++;
+        }
+
+        int idx = 0;
+        for(int i = 0;i < countArr.length;i++) {
+            while(countArr[i] > 0) {
+                arr[idx++] = i;
+                countArr[i]--;
+            }
+        }
+    }
+
+    public static String largestString(String str,String... strs) {
+        String largest = str;
+        
+        for (String s: strs) {
+            if (largest.compareTo(s) < 0) {
+                System.out.println("Hello");
+                largest = s;
+            }
+        }
+
+        return largest;
+    }
+
+    public static String alphabetString() {
+        StringBuilder sb = new StringBuilder();
+        for (char ch = 'A';ch <= 'Z';ch++) {
+            sb.append(ch);
+        } 
+        return sb.toString();
+    }
+
+    public static String toUpperCase(String sentence) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Character.toUpperCase(sentence.charAt(0)));
+
+        for (int i = 1;i < sentence.length();i++) {
+            sb.append(
+                sentence.charAt(i - 1) != ' ' ?
+                sentence.charAt(i):
+                Character.toUpperCase(sentence.charAt(i))
+            );
+        }
+
+        return sb.toString();
+    }
+
+    public static String removeWhiteSpaces(String sentence) {
+        StringBuilder result = new StringBuilder();
+
+        int i = 0;
+        while (i < sentence.length() && sentence.charAt(i) == ' ') {
+            i++;
+        }
+
+        while (i < sentence.length()) {
+            char ch = sentence.charAt(i);
+            if (!(ch == ' ' && sentence.charAt(i-1) == ' ')) {
+                result.append(ch);
+            }
+            i++;
+        }
+
+        if (result.length() > 0 && result.charAt(result.length()-1) == ' ') {
+            result.deleteCharAt(result.length()-1);
+        }
+            
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String s1 = "anuj";
+        String s2 = s1;
+
+        System.out.println("\""+removeWhiteSpaces("      A man with zero heators     ")+ "\"");
+    }   
 
 }
