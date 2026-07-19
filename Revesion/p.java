@@ -231,11 +231,34 @@ public class p {
         return result.toString();
     }
 
+    public static String compress(String str) {
+        StringBuilder result = new StringBuilder();
+        int count = 1;
+
+        for (int i = 1;i < str.length();i++) {
+            if (str.charAt(i) == str.charAt(i-1)) {
+                count++;
+            } else {
+                result.append(str.charAt(i-1));
+                if (count != 1) result.append(Integer.toString(count));
+                count = 1;
+            }
+        }
+
+        result.append(str.charAt(str.length()-1));
+        if (count != 1) result.append(Integer.toString(count));
+
+        return result.toString();
+
+    }
+
     public static void main(String[] args) {
         String s1 = "anuj";
         String s2 = s1;
 
-        System.out.println("\""+removeWhiteSpaces("      A man with zero heators     ")+ "\"");
+        System.out.println("\""+
+            compress("abcdefgg")
+        + "\"");
     }   
 
 }
