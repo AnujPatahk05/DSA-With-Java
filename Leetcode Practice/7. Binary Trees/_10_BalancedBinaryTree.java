@@ -27,8 +27,7 @@ public class _10_BalancedBinaryTree {
     }
 
     /* a node is height-balanced if 
-        - difference bet left height and right is 0 or 1
-        - And left node is height balanced and right node is height balanced
+        - difference bet left height and right is 0 or 1        - And left node is height balanced and right node is height balanced
         TC: O(n^2)  -> because we are calculating height for each node
         SC: O(h)
     */ 
