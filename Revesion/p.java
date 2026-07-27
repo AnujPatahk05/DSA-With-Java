@@ -1,7 +1,10 @@
+package Revesion;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Queue;
 
 
 public class p {
@@ -249,16 +252,56 @@ public class p {
         if (count != 1) result.append(Integer.toString(count));
 
         return result.toString();
+    }
 
+    public static TreeNode insert(TreeNode root,int val) {
+        if (root == null) return new TreeNode(val);
+
+        if (root.val > val) {
+            root.left =  insert(root.left, val);
+        } else {
+            root.right = insert(root.right, val);
+        }
+
+        return root;
     }
 
     public static void main(String[] args) {
-        String s1 = "anuj";
-        String s2 = s1;
+        TreeNode root = new TreeNode(5);
+        insert(root, 10);
+        insert(root, 2);
 
-        System.out.println("\""+
-            compress("abcdefgg")
-        + "\"");
-    }   
+        TreeNode.BFS(root);
+    }
+}
 
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+
+    public static void BFS(TreeNode root) {
+        Queue<TreeNode> q = new ArrayDeque<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+
+            for (int i = 0;i < size;i++) {
+                TreeNode curr = q.remove();
+
+                System.out.print(curr.val + " ");
+
+                if (curr.left != null) q.add(curr.left);
+                if (curr.right != null) q.add(curr.right);
+            }
+
+            System.out.println();
+        }
+    }
 }

@@ -28,7 +28,7 @@ public class _3_MinSumOfAbsoluteDiffPair {
     }
 
     public static int minSumOfAbsoluteDiffPair2(int[] A,int[] B){//O(n)
-        Arrays.sort(A);d
+        Arrays.sort(A);
         Arrays.sort(B);
 
         int minDiff = 0;

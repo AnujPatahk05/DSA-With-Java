@@ -29,7 +29,7 @@ import java.util.Queue;
     So we return the level with the maximum sum which is level 2.
 */
 
-public class _13_MaximumLevelSumOfBinaryTree{
+public class _14_MaximumLevelSumOfBinaryTree{
     // BFS Solution
     // TC: O(n)
     // SC: O(n)
