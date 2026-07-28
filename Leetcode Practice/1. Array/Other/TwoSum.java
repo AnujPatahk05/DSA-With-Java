@@ -68,7 +68,7 @@ public class TwoSum {
                     i
                 };
             }
-
+            
             map.put(nums[i],i);
         }
 

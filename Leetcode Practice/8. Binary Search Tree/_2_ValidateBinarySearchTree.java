@@ -37,6 +37,9 @@ public class _2_ValidateBinarySearchTree {
 
     private static Integer prev = null;
 
+    // Inorder approach without storing inorder
+    // TC: O(n)
+    // SC: O(h)
     public static boolean isValidBST2(TreeNode root) {
         if (root == null) return true;
 
@@ -53,11 +56,25 @@ public class _2_ValidateBinarySearchTree {
         return isValidBST2(root.right);
     }
 
+    // Min Max approach
+    public static boolean Util(TreeNode root,long min,long max) {
+        if (root == null) return true;
+
+        if (root.val >= max || root.val <= min) return false;
+
+        return Util(root.left,min,root.val) && Util(root.right,root.val,max);
+    }
+
+    public static boolean isValidBST3(TreeNode root) {
+        if (root == null) return true;
+        return Util(root,Long.MIN_VALUE,Long.MAX_VALUE);
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         root.right = new TreeNode(3);
 
-        System.out.println(isValidBST2(root));
+        System.out.println(isValidBST3(root));
     }
 }
