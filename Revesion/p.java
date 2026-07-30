@@ -1,10 +1,11 @@
-package Revesion;
+// package Revesion;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 
 public class p {
@@ -266,12 +267,25 @@ public class p {
         return root;
     }
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(5);
-        insert(root, 10);
-        insert(root, 2);
+    public static boolean validParenthesis(String str) {
+        Stack<Character> stack = new Stack<>();
 
-        TreeNode.BFS(root);
+        for (char ch:str.toCharArray()) {
+            if (ch == '(') {
+                stack.push(ch);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                } 
+                stack.pop();
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(validParenthesis("()()((())())"));
     }
 }
 
