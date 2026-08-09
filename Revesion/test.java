@@ -1,4 +1,4 @@
-package Revesion;
+// package Revesion;
 
 
 public class test {
@@ -8,9 +8,6 @@ public class test {
         int[] arr3 = {4,2,0,6,3,2,5};
         int[] arr4 = {3,5,8,1,0,10,2,3,1};
         int[] arr5 = {7,1,5,3,6,4};
-
-        
-
 
     }
 }
