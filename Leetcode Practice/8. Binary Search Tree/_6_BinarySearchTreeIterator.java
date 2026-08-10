@@ -21,8 +21,13 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class _6_BinarySearchTreeIterator {
+    // Constructor : TC: O(n) 
+    // next(): O(1)
+    // hasNext(): O(1)
+    // SC: O(n)
     class BSTIterator {
         List<Integer> nodes;
         int pointer;
@@ -48,6 +53,90 @@ public class _6_BinarySearchTreeIterator {
         
         public boolean hasNext() {
             return pointer < nodes.size();
+        }
+    }
+
+    // Constructor: O(h)
+    // next() : O(1)
+    // hasNext() : O(1)
+    // SC: O(h)
+    class BSTIterator2 {
+        private class Node {
+            TreeNode node;
+            boolean left;
+
+            Node (TreeNode node,boolean left) {
+                this.node = node;
+                this.left = left;
+            }
+        }
+
+        Stack<Node> stack;
+
+        public BSTIterator2(TreeNode root) {
+            stack = new Stack<>();
+
+            TreeNode left = root;
+            while (left != null) {
+                stack.push (new Node(left,true));
+                left = left.left;
+            }
+        }
+        
+        public int next() {
+            Node curr = stack.peek();
+
+            if (!curr.left && curr.node.left != null) {
+                curr.left = true;
+                stack.push (new Node(curr.node.left,false));
+                return next();
+            }
+
+            stack.pop();
+            int next = curr.node.val;
+
+            if (curr.node.right != null) {
+                stack.push(new Node(curr.node.right,false));
+            }
+
+            return next;
+        }
+        
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+    }
+
+    // More simple
+    // Constructor: O(h)
+    // next() : O(1)
+    // hasNext() : O(1)
+    // SC: O(h)
+    class BSTIterator3 {
+        private Stack<TreeNode> stack;
+
+        public BSTIterator3(TreeNode root) {
+            stack = new Stack<>();
+            pushLeft(root);
+        }
+
+        private void pushLeft(TreeNode root) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+        }
+
+        public int next() {
+            TreeNode curr = stack.pop();
+
+            pushLeft(curr.right);
+
+            return curr.val;
+        }
+
+        public boolean hasNext() {
+            return !stack.isEmpty();
         }
     }
 
