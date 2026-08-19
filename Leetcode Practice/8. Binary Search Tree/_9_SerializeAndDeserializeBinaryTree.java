@@ -96,6 +96,47 @@ public class _9_SerializeAndDeserializeBinaryTree {
         return create(nodes);
     }
 
+    private static void preorder(TreeNode root,StringBuilder ans) {
+        if (root == null) {
+            ans.append("n,");
+            return;
+        }
+
+        ans.append(root.val).append(",");
+        preorder(root.left, ans);
+        preorder(root.right, ans);
+    }
+
+    private static int i = 0;
+
+    private static TreeNode create2(String[] preorder) {
+        if (i >= preorder.length || preorder[i].equals("n")) {
+            i++;
+            return null;
+        }
+
+        TreeNode root = new TreeNode(Integer.parseInt(preorder[i]));
+        i++;
+        root.left = create2(preorder);
+        
+        i++;
+        root.right = create2(preorder);
+
+        return root;
+    }
+
+    // ---------> Sol using preorder DFS of tree <---------
+    public static String serialize2(TreeNode root) {
+        StringBuilder preorder = new StringBuilder();
+        preorder(root,preorder);
+        return preorder.toString();
+    }
+
+    public static TreeNode deserialize2(String data) {
+        String[] nodes = data.split(",");
+        return create2(nodes);
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -105,10 +146,19 @@ public class _9_SerializeAndDeserializeBinaryTree {
         root.right.left.left = new TreeNode(6);
         root.right.left.right = new TreeNode(7);
 
-        String data = serialize(root);
+        // TreeNode root = new TreeNode(10);
+        // root.left = new TreeNode(2);
+        // root.right = new TreeNode(12);
+
+
+        String data = serialize2(root);
         System.out.println(data);
 
-        TreeNode de = deserialize(data);
-        System.out.println(de.val);
+        TreeNode de = deserialize2(data);
+        System.out.println(de.left.val);
+
+        // StringBuilder preorder = new StringBuilder();
+        // preorder(root, preorder);
+        // System.out.println(preorder);
     }
 }
